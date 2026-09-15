@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datenschutz — Marcel hilft euch</title>
+    <link rel="icon" href="./favicon-32.png" type="image/png" sizes="32x32" />
+    <script>
+      // Gespeichertes Farbset vor dem ersten Zeichnen anwenden (gesetzt vom Farbwähler, siehe src/lib/farbset.ts)
+      try {
+        var farbset = JSON.parse(localStorage.getItem('farbset') || 'null')
+        var vars = farbset && farbset.vars
+        if (vars) {
+          for (var name in vars) {
+            if (/^--c-[a-z-]+$/.test(name) && /^#[0-9a-f]{6}$/.test(vars[name])) {
+              document.documentElement.style.setProperty(name, vars[name])
+            }
+          }
+        }
+      } catch (e) {}
+    </script>
+    <style>
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('./fonts/PlusJakartaSans-400.woff2') format('woff2');
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('./fonts/PlusJakartaSans-700.woff2') format('woff2');
+        font-weight: 700;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light;
+      }
+      html {
+        background: var(--c-light, #f8f5f0);
+      }
+      body {
+        margin: 0;
+        padding: 2rem 4vw 4rem;
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--c-on-light, #3e2723);
+        background: var(--c-light, #f8f5f0);
+      }
+      main {
+        max-width: 65ch;
+      }
+      a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+      a:hover {
+        opacity: 0.7;
+      }
+      .eyebrow {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.6;
+        margin: 2.5rem 0 0.75rem;
+      }
+      .hairline {
+        height: 1px;
+        background: currentColor;
+        opacity: 0.2;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 1.125rem;
+        margin: 2rem 0 0.5rem;
+      }
+      p,
+      ul {
+        margin: 0 0 1rem;
+      }
+      li {
+        margin-bottom: 0.25rem;
+      }
+      .platzhalter {
+        background: rgba(62, 39, 35, 0.08);
+        padding: 0 0.25em;
+        border-radius: 0.2em;
+      }
+      footer {
+        margin-top: 4rem;
+        font-size: 0.8rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="./">← Zurück zur Seite</a>
+      <p class="eyebrow">Datenschutz</p>
+      <div class="hairline"></div>
+      <h1>Datenschutz&shy;erklärung</h1>
+
+      <p>
+        Kurz gesagt: Diese Seite setzt keine Cookies, nutzt keine Analyse-Werkzeuge und lädt nichts
+        von Google oder anderen Drittanbietern. Was du mir über das Kontaktformular schickst, kommt
+        als E-Mail bei mir an und bleibt dort. Die Einzelheiten stehen hier.
+      </p>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Marcel Wessels<br />
+        Hinterm Berg 14<br />
+        27726 Worpswede<br />
+        E-Mail: <a href="mailto:hallo@marcel-worpswede.de">hallo@marcel-worpswede.de</a>
+      </p>
+
+      <h2>2. Hosting und Server-Logfiles</h2>
+      <p>
+        Die Seite und mein E-Mail-Postfach liegen bei der Hostinger International Ltd., 61 Lordou
+        Vironos Street, 6023 Larnaca, Zypern. Hostinger verarbeitet die Daten in meinem Auftrag
+        (Art. 28 DSGVO). Beim Aufruf speichert der Server des Anbieters automatisch in Logfiles:
+        IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, übertragene Datenmenge, Browser und
+        Betriebssystem. Diese Daten sind nötig, um die Seite auszuliefern und den Betrieb abzusichern.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren
+        Betrieb). Die Logfiles werden vom Anbieter nach einer begrenzten Zeit automatisch gelöscht. Ich
+        werte sie nicht aus und führe sie nicht mit anderen Daten zusammen.
+      </p>
+
+      <h2>3. Kontaktformular</h2>
+      <p>
+        Wenn du das Kontaktformular nutzt, verarbeite ich die Angaben, die du dort machst: deinen
+        Namen, deine E-Mail-Adresse und/oder Telefonnummer, deinen Wunsch, wie ich mich melden soll,
+        und deine Angaben zur Situation (wer du bist, worum es geht, wie dringend es ist, ein
+        Freitext).
+      </p>
+      <ul>
+        <li><strong>Zweck:</strong> Bearbeitung deiner Anfrage und Vorbereitung eines Erstgesprächs.</li>
+        <li>
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf
+          deine Anfrage) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, Anfragen zu
+          beantworten).
+        </li>
+        <li>
+          <strong>Weg der Daten:</strong> Das Formular schickt deine Angaben als E-Mail an mein Postfach
+          bei Hostinger. Auf dem Webserver werden sie nicht gespeichert und nicht protokolliert.
+        </li>
+        <li>
+          <strong>Spam-Schutz:</strong> Um automatisierte Anfragen zu bremsen, legt der Server beim
+          Absenden einen Hash-Wert deiner IP-Adresse (SHA-1) mit dem Zeitpunkt der Anfrage ab. Einträge,
+          die älter als 60 Minuten sind, zählen nicht mehr und werden beim nächsten Versand über das
+          Formular gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch).
+        </li>
+        <li>
+          <strong>Kopie an dich:</strong> Nur wenn du das Häkchen setzt, geht eine Kopie deiner Anfrage an
+          die von dir angegebene E-Mail-Adresse.
+        </li>
+        <li>
+          <strong>Speicherdauer:</strong> Ich lösche die E-Mail, sobald dein Anliegen erledigt ist. Kommt
+          ein Auftrag zustande, bewahre ich die Korrespondenz im Rahmen der gesetzlichen
+          Aufbewahrungsfristen auf.
+        </li>
+      </ul>
+
+      <h2>4. Kontakt per E-Mail</h2>
+      <p>
+        Schreibst du mir direkt eine E-Mail, verarbeite ich deine Angaben ebenfalls
+        nur zur Bearbeitung deines Anliegens (Art. 6 Abs. 1 lit. b und f DSGVO) und lösche sie, sobald
+        es erledigt ist und keine Aufbewahrungspflichten entgegenstehen.
+      </p>
+
+      <h2>5. Schriften</h2>
+      <p>
+        Die verwendeten Schriften liegen auf dem eigenen Webspace. Es wird keine Verbindung zu Google
+        Fonts oder anderen Schrift-Anbietern aufgebaut.
+      </p>
+
+      <h2>6. Cookies, Tracking, Speicher im Browser</h2>
+      <p>
+        Diese Seite setzt keine Cookies und nutzt keine Analyse- oder Tracking-Werkzeuge. Drei kleine
+        Angaben legt sie im Speicher deines Browsers ab. Alle verlassen deinen Browser nicht:
+      </p>
+      <ul>
+        <li>
+          <strong>Textgröße:</strong> Der Schalter für die Textgröße merkt sich deine Wahl
+          (localStorage), bis du sie zurücksetzt oder die Websitedaten in deinem Browser löschst.
+        </li>
+        <li>
+          <strong>Rücksprung:</strong> Gehst du von der Startseite zur Kontaktseite, merkt sich die
+          Seite das (sessionStorage), damit du beim Zurückgehen wieder beim Kontakt-Abschnitt landest.
+          Der Eintrag wird dabei entfernt, spätestens aber beim Schließen des Tabs gelöscht.
+        </li>
+        <li>
+          <strong>Farben:</strong> Wählst du im Farbwähler andere Farben, merkt sich die Seite deine
+          Wahl und die daraus berechneten Farbwerte (localStorage), bis du „Zurücksetzen“ wählst oder
+          die Websitedaten in deinem Browser löschst.
+        </li>
+      </ul>
+      <p>
+        Mit „Link kopieren“ im Farbwähler entsteht ein Link, der nur die gewählte Farbe enthält (zum
+        Beispiel <code>?farbe=ozean</code>), keine Angaben über dich. In die Zwischenablage kopiert
+        wird er nur, wenn du auf den Knopf klickst.
+      </p>
+      <p>
+        Rechtsgrundlage ist § 25 Abs. 2 Nr. 2 TDDDG: Die Speicherung ist unbedingt erforderlich, damit
+        die von dir genutzte Funktion funktioniert.
+      </p>
+
+      <h2>7. Deine Rechte</h2>
+      <p>Du hast gegenüber mir das Recht auf</p>
+      <ul>
+        <li>Auskunft über die zu dir gespeicherten Daten (Art. 15 DSGVO),</li>
+        <li>Berichtigung (Art. 16 DSGVO),</li>
+        <li>Löschung (Art. 17 DSGVO),</li>
+        <li>Einschränkung der Verarbeitung (Art. 18 DSGVO),</li>
+        <li>Datenübertragbarkeit (Art. 20 DSGVO),</li>
+        <li>Widerspruch gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO).</li>
+      </ul>
+      <p>
+        Dafür reicht eine formlose E-Mail an die oben genannte Adresse. Außerdem kannst du dich bei
+        einer Aufsichtsbehörde beschweren, zum Beispiel bei der Landesbeauftragten für den Datenschutz
+        Niedersachsen, Prinzenstraße 5, 30159 Hannover,
+        <a href="https://lfd.niedersachsen.de" rel="noopener">lfd.niedersachsen.de</a>.
+      </p>
+
+      <h2>8. Stand</h2>
+      <p>September 2026</p>
+
+      <footer>
+        Marcel · Worpswede · Niedersachsen · <a href="./impressum.html">Impressum</a>
+      </footer>
+    </main>
+  </body>
+</html>

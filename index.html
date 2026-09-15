@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="./favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <script>
+      // Apply the saved text size before first paint (set by TextSizeButton)
+      try {
+        var size = localStorage.getItem('text-size')
+        if (size === '125' || size === '150') {
+          document.documentElement.style.fontSize = size + '%'
+          document.documentElement.setAttribute('data-text-size', size)
+        }
+      } catch (e) {}
+    </script>
+    <script>
+      // Gespeichertes Farbset vor dem ersten Zeichnen anwenden (gesetzt vom Farbwähler, siehe src/lib/farbset.ts)
+      try {
+        var farbset = JSON.parse(localStorage.getItem('farbset') || 'null')
+        var vars = farbset && farbset.vars
+        if (vars) {
+          for (var name in vars) {
+            if (/^--c-[a-z-]+$/.test(name) && /^#[0-9a-f]{6}$/.test(vars[name])) {
+              document.documentElement.style.setProperty(name, vars[name])
+            }
+          }
+        }
+      } catch (e) {}
+    </script>
+    <title>Marcel — Digitale Organisation für Selbstständige &amp; Vereine</title>
+    <script type="module" crossorigin src="./assets/index-CfSTDIT5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-EfrdE__E.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

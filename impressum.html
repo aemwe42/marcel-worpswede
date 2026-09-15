@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impressum — Marcel hilft euch</title>
+    <link rel="icon" href="./favicon-32.png" type="image/png" sizes="32x32" />
+    <script>
+      // Gespeichertes Farbset vor dem ersten Zeichnen anwenden (gesetzt vom Farbwähler, siehe src/lib/farbset.ts)
+      try {
+        var farbset = JSON.parse(localStorage.getItem('farbset') || 'null')
+        var vars = farbset && farbset.vars
+        if (vars) {
+          for (var name in vars) {
+            if (/^--c-[a-z-]+$/.test(name) && /^#[0-9a-f]{6}$/.test(vars[name])) {
+              document.documentElement.style.setProperty(name, vars[name])
+            }
+          }
+        }
+      } catch (e) {}
+    </script>
+    <style>
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('./fonts/PlusJakartaSans-400.woff2') format('woff2');
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('./fonts/PlusJakartaSans-700.woff2') format('woff2');
+        font-weight: 700;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light;
+      }
+      html {
+        background: var(--c-light, #f8f5f0);
+      }
+      body {
+        margin: 0;
+        padding: 2rem 4vw 4rem;
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--c-on-light, #3e2723);
+        background: var(--c-light, #f8f5f0);
+      }
+      main {
+        max-width: 65ch;
+      }
+      a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+      a:hover {
+        opacity: 0.7;
+      }
+      .eyebrow {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.6;
+        margin: 2.5rem 0 0.75rem;
+      }
+      .hairline {
+        height: 1px;
+        background: currentColor;
+        opacity: 0.2;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 1.125rem;
+        margin: 2rem 0 0.5rem;
+      }
+      p {
+        margin: 0 0 1rem;
+      }
+      .platzhalter {
+        background: rgba(62, 39, 35, 0.08);
+        padding: 0 0.25em;
+        border-radius: 0.2em;
+      }
+      footer {
+        margin-top: 4rem;
+        font-size: 0.8rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="./">← Zurück zur Seite</a>
+      <p class="eyebrow">Impressum</p>
+      <div class="hairline"></div>
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        Marcel Wessels<br />
+        Hinterm Berg 14<br />
+        27726 Worpswede
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:hallo@marcel-worpswede.de">hallo@marcel-worpswede.de</a><br />
+        Kontaktformular: <a href="./kontakt">Anfrage stellen</a>
+      </p>
+
+      <h2>Umsatzsteuer</h2>
+      <p>
+        Als Kleinunternehmer im Sinne von § 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>
+        Marcel Wessels, Anschrift wie oben.
+      </p>
+
+      <h2>Verbraucherstreitbeilegung</h2>
+      <p>
+        Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <footer>
+        Marcel · Worpswede · Niedersachsen · <a href="./datenschutz.html">Datenschutz</a>
+      </footer>
+    </main>
+  </body>
+</html>

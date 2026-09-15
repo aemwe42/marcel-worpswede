@@ -1,0 +1,13 @@
+# Kontaktseite direkt aufrufbar machen: /kontakt wird von der App (index.html) bedient.
+# Liegt die Seite in einem anderen Ordner, hier den Pfad anpassen.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /marcel-worpswede/
+
+  # Abschließenden Slash entfernen, sonst zeigen die relativen Asset-Pfade eine Ebene zu tief.
+  RewriteRule ^kontakt/$ kontakt [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^kontakt$ index.html [L]
+</IfModule>
