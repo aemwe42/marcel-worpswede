@@ -6,8 +6,8 @@
  *
  * Diese drei Werte selbst eintragen:
  */
-const EMPFAENGER    = 'm.wessels42@gmail.com';
-const ABSENDER      = 'website@aemwe.xyz';   // muss zur Domain des Webspace passen, sonst landet es im Spam
+const EMPFAENGER    = 'hallo@marcel-hilft.de';
+const ABSENDER      = 'website@marcel-hilft.de';   // muss zur Domain des Webspace passen, sonst landet es im Spam
 const ABSENDER_NAME = 'Website Marcel';
 
 /* ── Grenzen ── */
