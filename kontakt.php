@@ -100,6 +100,7 @@ $stufe    = (int) ($json['dringlichkeit'] ?? 0);
 $stufe    = ($stufe >= 0 && $stufe < count(DRINGLICHKEIT)) ? $stufe : 0;
 $nervt    = lang($json['nervt'] ?? '', MAX_TEXT);
 $freitext = lang($json['freitext'] ?? '', MAX_TEXT);
+$sonstiges = lang($json['sonstiges'] ?? '', MAX_TEXT);
 $name     = kurz($json['name'] ?? '', MAX_KURZ);
 $email    = kurz($json['email'] ?? '', MAX_KURZ);
 $telefon  = kurz($json['telefon'] ?? '', MAX_TELEFON);
@@ -118,6 +119,13 @@ if ($email === '' && $telefon === '') {
 }
 if ($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     antwort(422, ['status' => 'fehler', 'grund' => 'email']);
+}
+// Der gewünschte Weg muss auch gehen (gleiche Regel wie im Formular).
+if ($kanal === 'anrufen' && $telefon === '') {
+    antwort(422, ['status' => 'fehler', 'grund' => 'anrufen-ohne-telefon']);
+}
+if ($kanal === 'schreiben' && $email === '') {
+    antwort(422, ['status' => 'fehler', 'grund' => 'schreiben-ohne-email']);
 }
 
 /* ── Spam-Schutz: bei Treffer "ok" zurückgeben, aber nichts senden ── */
@@ -187,6 +195,9 @@ $zeilen[] = zeile('Dringlichkeit:', $dringText);
 array_push($zeilen, ...block('Nervt am meisten', $nervt));
 if ($weg === 'freitext' || $freitext !== '') {
     array_push($zeilen, ...block('Freitext', $freitext));
+}
+if ($sonstiges !== '') {
+    array_push($zeilen, ...block('Sonst noch', $sonstiges));
 }
 $zeilen[] = '';
 $zeilen[] = zeile('Kontakt:', $name);
